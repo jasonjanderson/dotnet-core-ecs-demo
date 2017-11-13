@@ -1,0 +1,35 @@
+[
+  {
+    "name": "dotnet-task",
+    "image": "${image}",
+    "taskRoleArn": "${iam_role_arn}",
+    "portMappings": [
+    {
+        "containerPort": 5000,
+        "protocol": "tcp"
+      }
+    ],
+    "memory": 512,
+    "cpu": 512,
+    "environment": [
+      {
+        "name": "SOME_ENVIRONMENT_VARIABLE",
+        "value": "some value"
+      }
+    ],
+    "mountPoints": [
+      {
+        "sourceVolume": "demo",
+        "containerPath": "/opt/demo",
+        "readOnly": false
+      }
+    ],
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-region": "${region}",
+        "awslogs-group": "${log_group}"
+      }
+    }
+  }
+]

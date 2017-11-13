@@ -1,0 +1,4 @@
+config.tf
+.terraform
+*.tfstate
+*.tfstate.*
